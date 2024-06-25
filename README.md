@@ -1,8 +1,8 @@
 # Accompanying code 
 
-Paper: Pettersson M., Ekeroth, J. L., and Russo, A. Calculating Function
+[Paper: Pettersson M., Ekeroth, J. L., and Russo, A. Calculating Function
 Sensitivity for Synthetic Data Algorithms, ACM 35th Symposium on Implementation
-and Application of Functional Languages (IFL), 2023. 
+and Application of Functional Languages (IFL), 2023.](https://dl.acm.org/doi/10.1145/3652561.3652567)
 
 
 ## The improved version of the trick
