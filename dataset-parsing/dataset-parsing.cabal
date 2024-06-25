@@ -1,0 +1,62 @@
+cabal-version:      2.4
+name:               dataset-parsing
+version:            0.1.0.0
+license:            MPL-2.0
+license-file:       LICENSE
+maintainer:         markus.pettersson1998@gmail.com
+category:           Parsing
+
+common comm
+  default-language:   Haskell2010
+  ghc-options:        -Wall -Wno-unticked-promoted-constructors
+  default-extensions:
+    LambdaCase
+    NoImplicitPrelude
+    BangPatterns
+    ConstraintKinds
+    DataKinds
+    DeriveGeneric
+    DeriveLift
+    DeriveTraversable
+    DerivingStrategies
+    EmptyCase
+    FlexibleContexts
+    FlexibleInstances
+    FunctionalDependencies
+    GADTs
+    GeneralizedNewtypeDeriving
+    KindSignatures
+    OverloadedStrings
+    PatternSynonyms
+    PolyKinds
+    RankNTypes
+    RecordWildCards
+    RoleAnnotations
+    ScopedTypeVariables
+    StandaloneDeriving
+    TypeApplications
+    TypeFamilies
+    TypeOperators
+    UndecidableInstances
+    ViewPatterns
+    OverloadedStrings
+    InstanceSigs
+
+library
+  import:
+    comm
+  hs-source-dirs:   src
+  exposed-modules:
+    Dataset.Adult.Parser
+    Dataset.Adult.Age.Parser
+    Dataset.Adult.Workclass.Parser
+    Dataset.Adult.Race.Parser
+    Dataset.Adult.Sex.Parser
+    Dataset.Adult.HoursPerWeek.Parser
+    Dataset.Adult.NativeCountry.Parser
+  build-depends:
+    , base ^>=4.12.0.0
+    , dataset
+    , cassava
+    , vector
+    , bytestring

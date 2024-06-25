@@ -1,0 +1,68 @@
+cabal-version:      2.4
+name:               dpella-benchmark
+version:            0.1.0.0
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Markus Pettersson
+maintainer:         markus.pettersson1998@gmail.com
+category:           Testing
+
+common comm
+  default-language:   Haskell2010
+  ghc-options:        -Wall -Wno-unticked-promoted-constructors
+  default-extensions:
+    LambdaCase
+    NoImplicitPrelude
+    BangPatterns
+    ConstraintKinds
+    DataKinds
+    DeriveGeneric
+    DeriveLift
+    DeriveTraversable
+    DerivingStrategies
+    EmptyCase
+    FlexibleContexts
+    FlexibleInstances
+    FunctionalDependencies
+    GADTs
+    GeneralizedNewtypeDeriving
+    KindSignatures
+    OverloadedStrings
+    PatternSynonyms
+    PolyKinds
+    RankNTypes
+    RecordWildCards
+    RoleAnnotations
+    ScopedTypeVariables
+    StandaloneDeriving
+    TypeApplications
+    TypeFamilies
+    TypeOperators
+    UndecidableInstances
+    ViewPatterns
+
+executable dpella-benchmark
+  import:
+    comm
+  main-is:
+    Main.hs
+  other-modules:
+    Workloads
+    Util
+    Distribution
+    CompressedAge
+  build-depends:
+    , base ^>=4.12.0.0
+    , dpella-algorithms
+    , dataset
+    , dataset-parsing
+    , dataset-th
+    , dpella-isensitivity
+    -- * Producing results
+    , cassava
+    , bytestring
+    , vector
+    , containers
+
+  hs-source-dirs:   app
+  default-language: Haskell2010

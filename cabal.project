@@ -1,0 +1,12 @@
+with-compiler: ghc-8.6.5
+
+-- Adult dataset related packages 
+packages:      ./dataset
+packages:      ./dataset-parsing
+packages:      ./dataset-th
+-- DPella's modules for generation of noise and MWEM 
+packages:      ./dpella-algorithms
+packages:      ./dpella-noise
+-- Our work
+packages:      ./dpella-isensitivity
+packages:      ./dpella-benchmark

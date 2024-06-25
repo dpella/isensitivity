@@ -1,0 +1,33 @@
+cabal-version:      2.4
+name:               dataset-th
+version:            0.1.0.0
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Markus Pettersson
+maintainer:         markus.pettersson1998@gmail.com
+category:           Dataset
+
+library
+  exposed-modules:
+    Dataset.Adult.Age.TH
+    Dataset.Adult.Sex.TH
+    Dataset.Adult.Race.TH
+    Dataset.Adult.HoursPerWeek.TH
+    Dataset.Adult.Workclass.TH
+  build-depends:
+    , base ^>=4.12.0.0
+    , dataset
+    , dpella-isensitivity
+  hs-source-dirs:
+    src
+  default-language:
+    Haskell2010
+  default-extensions:
+    TemplateHaskell
+    PatternSynonyms
+    DataKinds
+    FlexibleInstances
+    MultiParamTypeClasses
+    GADTs
+  ghc-options:
+    -Wall -Wno-unticked-promoted-constructors

@@ -1,0 +1,101 @@
+cabal-version:      2.4
+
+name:               dpella-isensitivity
+version:            0.1.0.0
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Alejandro Russo, Johannes Ljung Ekeroth, Markus Pettersson
+maintainer:         alejandro@dpella.io, johannes@dpella.io, markus@dpella.io
+copyright:          2020 Alejandro Russo
+category:           Security
+extra-source-files: CHANGELOG.md
+
+common common-extensions
+  default-extensions:
+                      TypeApplications
+                      DataKinds
+                      LambdaCase
+                      TemplateHaskell
+                      GADTs
+                      PatternSynonyms
+                      MultiParamTypeClasses
+                      ScopedTypeVariables
+                      FlexibleInstances
+library
+  import:          common-extensions
+
+  exposed-modules: DSL.Deep
+                 -- Improved 'The Trick' and supporting modules.
+                 , TypeLift.Trick
+                 , TypeLift.TH.STGen
+                 , TypeLift.TH.Util
+                 , TypeLift.TH.NSPatternSynonyms
+                 , TypeLift.TH.Reify
+  build-depends: base >= 4.12
+               , mtl
+               , constraints
+               , intervals
+               -- Generic programming
+               , sop-core
+               -- Template Haskell
+               , ghc
+               , template-haskell >= 2.14.0.0
+               , uniplate
+               -- Testing / Benchmarking
+               , QuickCheck
+               , ghc-typelits-natnormalise
+
+  hs-source-dirs: src
+  default-language: Haskell2010
+  ghc-options: -Wall -Wno-type-defaults
+
+executable playground
+  import:          common-extensions
+
+  hs-source-dirs:      examples
+  main-is:             Main.hs
+  other-modules:       Nations
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                       -- 'The Trick' and supporting modules.
+                       , dpella-isensitivity
+
+
+  buildable: False
+  ghc-options: -j +RTS -A128m -n2m -s -RTS
+
+executable comp-bench
+  import: common-extensions
+
+  main-is: Main.hs
+  hs-source-dirs: bench
+  other-modules: TH.DataType
+               -- Test cases
+               , Test.Ten
+               , Test.Twenty
+               , Test.Thirty
+               , Test.Forty
+               , Test.Fifty
+               , Test.Sixty
+               , Test.Seventy
+               , Test.Eighty
+               , Test.Ninety
+               , Test.Hundred
+               , Test.HundredTen
+               , Test.HundredTwenty
+               , Test.HundredThirty
+               , Test.HundredForty
+               , Test.HundredFifty
+               , Test.HundredSixty
+               , Test.HundredSeventy
+               , Test.HundredEighty
+               , Test.HundredNinety
+               , Test.TwoHundred
+
+  build-depends: dpella-isensitivity
+               , base >= 4.11
+               , template-haskell >= 2.14.0.0
+
+  buildable: False
+  default-language: Haskell2010
+  ghc-options: -ddump-timings -ddump-to-file
